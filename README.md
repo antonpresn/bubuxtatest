@@ -1,4 +1,4 @@
 bubuxtatest
 ===========
 
-post gallery wor wp
+post gallery for wp
