@@ -43,9 +43,12 @@ function ajp_post_type(){
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
-		'menu_position'      => null
+		'menu_position'      => null,
+		'taxonomies'         => array( 'category' ),
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
 		
 	);
 
 	register_post_type( AJP_POST_TYPE, $args );
+	
 }
