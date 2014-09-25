@@ -68,9 +68,9 @@ function ajp_refresh_callback () {
 	$current_post = ajp_output_content ( $_POST );
 	$content = ob_get_clean ();
 	
-	$same_term = true;	
+	$same_term = !empty ( $_POST['cat'] );	
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( $same_term, '', true );
-	$next     = get_adjacent_post( $same_term, '', false );
+	$next     = get_adjacent_post ( $same_term, '', false );
 	$previous_link = null;
 	$next_link = null;
 	$current_link = null; 
@@ -175,7 +175,7 @@ function ajp_output_content ($data) {
 	global $wp_query;
 	// Start the Loop.
 
-	$args = array( 'post_type' => 'ajppost', 'posts_per_page' => 1 );
+	$args = array( 'post_type' => 'ajppost', 'posts_per_page' => 1, 'order' => 'ASC' );
 
 	if( isset($data ['cat']) ) { 
 		$args ['cat'] = intval ( $data ['cat'] );
@@ -195,14 +195,7 @@ function ajp_output_content ($data) {
 	while ( $wp_query->have_posts() ) : $wp_query->the_post();
 		// Include the page content template.
 		get_template_part( 'content', 'page' );
-		
-		//twentyfourteen_post_thumbnail();
-		
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) {
-			comments_template();
-		}		
-		
+				
 		if ( isset ($wp_query->posts[$wp_query->current_post]) ) {
 			$current_post = $wp_query->posts [$wp_query->current_post];
 		}
@@ -220,7 +213,7 @@ function ajp_twentyfourteen_post_nav($same_term = true) {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( $same_term, '', true );
 	$next     = get_adjacent_post( $same_term, '', false );
 
-	$previous_link = $post_link = null;
+	$previous_link = $next_link = null;
 	
 	if ( $previous ) {
 		$previous_link = get_ajppost_link ($previous, $_REQUEST);
