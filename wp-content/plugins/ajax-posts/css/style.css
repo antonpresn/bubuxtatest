@@ -16,9 +16,13 @@ License: MIT
     width: 100%;
 }
 
-.ajp-categories li{
+.ajp-categories ul li{
     display:  inline-block;
     padding: 1% 2%; 
+}
+
+.ajp-categories ul.children {
+    font-size: 0.8em;
 }
 
 .ajp-post-navigation .dashicons{
@@ -27,17 +31,71 @@ License: MIT
 
 .ajp-prev{
     float: left;
+    margin-left: 20%;
+    
 }
 
 .ajp-next{
     float: right;
+    margin-right: 8%;
 }
 
 .ajp-post-navigation{
     position: absolute;    
-    margin: -30% 1%;
+    top: 565px;
+    width: 100%;
+    height: 10%;
+    display: block;
+}
+
+.hidden {
+    display: none;
 }
 
 .site-content{
     min-height: 500px;
+}
+
+.social-buttons .social-iframe {
+    display: inline-block;
+    //overflow: hidden;
+    width: 30%;
+    height: 100%;
+    vertical-align: top;
+    
+    padding: 1%;
+}
+
+@media screen and (min-width: 1260px) {
+    .ajp-prev {        
+        margin-left: 20%;
+    }
+}
+
+@media screen and (max-width: 1259px) {
+    .ajp-next {        
+        margin-left: 0%;
+    }
+    
+    .ajp-post-navigation {
+        width: 92%;
+    }
+}
+
+@media screen and (max-width: 1008px) {
+    .ajp-prev {        
+        margin-left: 0%;
+    }
+    
+    .ajp-categories ul li {
+        display:  block;
+    }
+    
+    .social-buttons .social-iframe {
+        display: block;
+    }
+    
+    .ajp-post-navigation {
+        top: 665px;
+    }
 }
