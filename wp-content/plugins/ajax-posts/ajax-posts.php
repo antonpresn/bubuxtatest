@@ -34,10 +34,10 @@ function ajp_deactivate(){
 // adding actions
 add_action( 'wp_enqueue_scripts', 'ajp_enqueue' );
 
-if ( is_admin() ) {
+
 	add_action( 'wp_ajax_ajp_refresh', 'ajp_refresh_callback' );
 	add_action( 'wp_ajax_nopriv_ajp_refresh', 'ajp_refresh_callback' );
-}
+
 
 /**
  * Enqueue js script
@@ -227,8 +227,8 @@ function ajp_twentyfourteen_post_nav($same_term = true) {
 	<nav class="ajp-post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'twentyfourteen' ); ?></h1>
 		<div class="">
-			<a class="ajp-prev-link <?php if (!$previous_link) echo 'hidden'; ?>" href="<?php echo $previous_link; ?>"><?php echo __( '<span class="dashicons ajp-prev dashicons-arrow-left-alt2"><p class="screen-reader-text">Previous post</p></span>', 'twentyfourteen' ); ?></a>
-			<a class="ajp-next-link <?php if (!$next_link) echo 'hidden'; ?>" href="<?php echo $next_link; ?>"><?php echo __( '<span class="dashicons ajp-next dashicons-arrow-right-alt2"><p class="screen-reader-text">Next post</p></span>', 'twentyfourteen' ); ?></a>
+			<a class="ajp-prev-link <?php if (!$previous_link) echo 'hidden'; ?>" href="<?php echo $previous_link; ?>"><?php echo __( '<span class="genericon ajp-prev genericon-leftarrow"><p class="screen-reader-text">Previous post</p></span>', 'twentyfourteen' ); ?></a>
+			<a class="ajp-next-link <?php if (!$next_link) echo 'hidden'; ?>" href="<?php echo $next_link; ?>"><?php echo __( '<span class="genericon ajp-next genericon-rightarrow"><p class="screen-reader-text">Next post</p></span>', 'twentyfourteen' ); ?></a>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
